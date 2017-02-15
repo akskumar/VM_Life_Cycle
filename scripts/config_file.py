@@ -1,3 +1,7 @@
+"""
+This file contains configuration details of mail server and ESXi server
+"""
+
 imap_server = "imap.gmail.com"
 username = "kumar.anuj2006"
 password = "Welcome123"
