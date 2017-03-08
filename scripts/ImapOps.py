@@ -74,5 +74,5 @@ def parse_unseen_mails():
 if __name__ == '__main__':
     print "Main Function"
     vm_config_parameters = parse_unseen_mails()
-    print type(vm_config_parameters)
+
     print str(vm_config_parameters)
