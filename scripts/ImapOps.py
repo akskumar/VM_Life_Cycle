@@ -9,7 +9,7 @@ from config_file import *
 import imaplib
 import email
 import re
-
+import os
 
 def open_connection():
     try:
@@ -27,8 +27,14 @@ def open_connection():
 
         print "Connected to " + imap_server
         return connection
-
-
+def save_attachment(msg, download_foler="/tmp"):
+    attachment = [part.get_filename() for part in raw_data.walk() if part.get_filename() and part.get_filename().endswith('xlsx')]
+    filepath = os.path.join(download_folder, attachment)
+    if attachment:
+        fp = open(att_path, 'wb')
+        fp.write(part.get_payload(decode=True))
+        fp.close()
+        return filepath
 def parse_unseen_mails():
     """This method will look for unseen emails and parse the data given in body of email"""
     conn = open_connection ()
